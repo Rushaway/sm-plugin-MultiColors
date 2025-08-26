@@ -229,16 +229,23 @@ stock void CPrintToChatObserversEx(int target, const char[] message, any ...) {
 		CFixColors();
 	}
 
- 	for (int client = 1; client <= MaxClients; client++) {
- 		if (IsClientInGame(client) && !IsPlayerAlive(client) && !IsFakeClient(client)) {
- 			int observee = GetEntPropEnt(client, Prop_Send, "m_hObserverTarget");
- 			int ObserverMode = GetEntProp(client, Prop_Send, "m_iObserverMode");
- 
- 			if (observee == target && (ObserverMode == 4 || ObserverMode == 5)) {
- 				CPrintToChatEx(client, target, buffer);
- 			}
- 		}
- 	}
+	int observee;
+	int ObserverMode;
+	for (int client = 1; client <= MaxClients; client++) {
+		if (!IsClientInGame(client) || IsPlayerAlive(client) || IsFakeClient(client)) {
+			continue;
+		}
+
+		ObserverMode = GetEntProp(client, Prop_Send, "m_iObserverMode");
+		if (ObserverMode != 4 && ObserverMode != 5) {
+			continue;
+		}
+
+		observee = GetEntPropEnt(client, Prop_Send, "m_hObserverTarget");
+		if (observee == target) {
+			CPrintToChatEx(client, target, buffer);
+		}
+	}
 }
 
 /**
