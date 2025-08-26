@@ -454,6 +454,13 @@ stock void CFixColors() {
 }
 
 stock bool IsSource2009() {
-	EngineVersion engine = GetEngineVersion();
-	return (engine == Engine_CSS || engine == Engine_HL2DM || engine == Engine_DODS || engine == Engine_TF2 || engine == Engine_SDK2013);
+	static bool checked = false;
+	static bool result = false;
+
+	if (!checked) {
+		EngineVersion engine = GetEngineVersion();
+		result = (engine == Engine_CSS || engine == Engine_HL2DM || engine == Engine_DODS || engine == Engine_TF2 || engine == Engine_SDK2013);
+		checked = true;
+	}
+	return result;
 }
