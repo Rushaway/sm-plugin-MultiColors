@@ -3,7 +3,7 @@
 #endif
 #define _multicolors_included
 
-#define MuCo_VERSION "2.1.2"
+#define MuCo_VERSION "2.3.0"
 
 #include "multicolors/morecolors"
 #include "multicolors/colors"
@@ -15,6 +15,7 @@
 *       - Powerlord
 *       - exvel
 *       - Dr. McKay
+*       - Rushaway / maxime1907 (SRCDSLAB)
 *
 *   Based on stamm-colors
 *       - https://github.com/popoklopsi/Stamm/blob/master/include/stamm/stamm-colors.inc
