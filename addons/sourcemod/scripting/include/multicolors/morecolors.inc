@@ -13,6 +13,8 @@
 #define MORE_COLORS_VERSION     "2.0.0-MC"
 #define MC_MAX_MESSAGE_LENGTH   256
 #define MAX_BUFFER_LENGTH       (MC_MAX_MESSAGE_LENGTH * 4)
+#define MAX_COLOR_TAG_LENGTH 32
+#define COLOR_HASH_SIZE 256
 
 #define MCOLOR_RED              0xFF4040
 #define MCOLOR_BLUE             0x99CCFF
