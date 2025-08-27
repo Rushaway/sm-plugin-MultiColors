@@ -23,7 +23,6 @@
 #define MC_GAME_DODS           0
 
 bool MC_SkipList[MAXPLAYERS+1];
-StringMap MC_Trie;
 int MC_TeamColors[][] = {{0xCCCCCC, 0x4D7942, 0xFF4040}}; // Multi-dimensional array for games that don't support SayText2. First index is the game index (as defined by the GAME_ defines), second index is team. 0 = spectator, 1 = team1, 2 = team2
 
 static ConVar sm_show_activity;
@@ -228,17 +227,6 @@ stock void MC_SkipNextClient(int client) {
 	}
 	
 	MC_SkipList[client] = true;
-}
-
-/**
- * Checks if the colors trie is initialized and initializes it if it's not (used internally)
- * 
- * @return			No return
- */
-stock void MC_CheckTrie() {
-	if (MC_Trie == null) {
-		MC_Trie = MC_InitColorTrie();
-	}
 }
 
 /**
