@@ -112,7 +112,7 @@ stock void CPrintToChatAll(const char[] message, any ...) {
 		}
 	}
 	else {
-		MC_CheckTrie();
+		MC_InitFastColors();
 
 		char buffer2[MAX_BUFFER_LENGTH];
 
