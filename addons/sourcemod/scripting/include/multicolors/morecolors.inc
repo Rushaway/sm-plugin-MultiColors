@@ -8,7 +8,6 @@
 #define _more_colors_included
 
 #pragma newdecls optional
-#include <regex>
 
 #define MORE_COLORS_VERSION     "2.0.0-MC"
 #define MC_MAX_MESSAGE_LENGTH   256
@@ -253,81 +252,93 @@ stock void MC_CheckTrie() {
  * On error/Errors:		If the client index passed for author is invalid or not in game.
  */
 stock void MC_ReplaceColorCodes(char[] buffer, int author = 0, bool removeTags = false, int maxlen = MAX_BUFFER_LENGTH) {
-	MC_CheckTrie();
+	MC_InitFastColors();
 	if (!removeTags) {
-		ReplaceString(buffer, maxlen, "{default}", "\x01", false);
+		FastReplaceString(buffer, maxlen, "{default}", "\x01");
+
+		if (author != 0) {
+			if (author < 0 || author > MaxClients) {
+				ThrowError("Invalid client index %i", author);
+			}
+
+			if (!IsClientInGame(author)) {
+				ThrowError("Client %i is not in game", author);
+			}
+
+			FastReplaceString(buffer, maxlen, "{teamcolor}", "\x03");
+		}
 	}
 	else {
-		ReplaceString(buffer, maxlen, "{default}", "", false);
-		ReplaceString(buffer, maxlen, "{teamcolor}", "", false);
+		FastReplaceString(buffer, maxlen, "{default}", "");
+		FastReplaceString(buffer, maxlen, "{teamcolor}", "");
 	}
 
-	if (author != 0 && !removeTags) {
-		if (author < 0 || author > MaxClients) {
-			ThrowError("Invalid client index %i", author);
+	int outPos = 0;
+	int len = strlen(buffer);
+	int i = 0;
+
+	while (i < len && outPos < maxlen - 16) {
+		if (buffer[i] == '{') {
+			int start = i + 1;
+			int end = -1;
+
+			// Find closing brace
+			for (int j = start; j < len && j < start + MAX_COLOR_TAG_LENGTH; j++) {
+				if (buffer[j] == '}') {
+					end = j;
+					break;
+				}
+			}
+
+			if (end != -1) {
+				int tagLen = end - start;
+
+				// Extract tag
+				int copyLen = (tagLen < 31) ? tagLen : 31;
+				for (int k = 0; k < copyLen; k++) {
+					g_sTempTag[k] = buffer[start + k];
+				}
+				g_sTempTag[copyLen] = '\0';
+
+				MC_StrToLower(g_sTempTag);
+
+				char value[16];
+				bool found = false;
+
+				// Handle hex colors
+				if (g_sTempTag[0] == '#' && (tagLen == 7 || tagLen == 9)) {
+					if (tagLen == 7) {
+						value[0] = '\x07';
+						strcopy(value[1], 9, g_sTempTag[1]);
+					} else {
+						value[0] = '\x08';
+						strcopy(value[1], 9, g_sTempTag[1]);
+					}
+					found = true;
+				} else {
+					found = FastGetColor(g_sTempTag, value, sizeof(value));
+				}
+
+				if (found && !removeTags) {
+					// Copy color code directly
+					int valLen = strlen(value);
+					for (int k = 0; k < valLen && outPos < maxlen - 1; k++) {
+						g_sOutputBuffer[outPos++] = value[k];
+					}
+					i = end + 1;
+					continue;
+				} else if (removeTags) {
+					i = end + 1;
+					continue;
+				}
+			}
 		}
 
-		if (!IsClientInGame(author)) {
-			ThrowError("Client %i is not in game", author);
-		}
-
-		ReplaceString(buffer, maxlen, "{teamcolor}", "\x03", false);
+		g_sOutputBuffer[outPos++] = buffer[i++];
 	}
 
-	int cursor = 0;
-	int value;
-	char tag[32], buff[32]; 
-	char[] output = new char[maxlen];
-
-	strcopy(output, maxlen, buffer);
-	// Since the string's size is going to be changing, output will hold the replaced string and we'll search buffer
-
-	Regex regex = new Regex("{[#a-zA-Z0-9]+}");
-	for (int i = 0; i < 1000; i++) { // The RegEx extension is quite flaky, so we have to loop here :/. This loop is supposed to be infinite and broken by return, but conditions have been added to be safe.
-		if (regex.Match(buffer[cursor]) < 1) {
-			delete regex;
-			strcopy(buffer, maxlen, output);
-			return;
-		}
-
-		regex.GetSubString(0, tag, sizeof(tag));
-		MC_StrToLower(tag);
-		cursor = StrContains(buffer[cursor], tag, false) + cursor + 1;
-		strcopy(buff, sizeof(buff), tag);
-		ReplaceString(buff, sizeof(buff), "{", "");
-		ReplaceString(buff, sizeof(buff), "}", "");
-
-		if (buff[0] == '#') {
-			if (strlen(buff) == 7) {
-				Format(buff, sizeof(buff), "\x07%s", buff[1]);
-			}
-			else if (strlen(buff) == 9) {
-				Format(buff, sizeof(buff), "\x08%s", buff[1]);
-			}
-			else {
-				continue;
-			}
-
-			if (removeTags) {
-				ReplaceString(output, maxlen, tag, "", false);
-			}
-			else {
-				ReplaceString(output, maxlen, tag, buff, false);
-			}
-		}
-		else if (!MC_Trie.GetValue(buff, value)) {
-			continue;
-		}
-
-		if (removeTags) {
-			ReplaceString(output, maxlen, tag, "", false);
-		}
-		else {
-			Format(buff, sizeof(buff), "\x07%06X", value);
-			ReplaceString(output, maxlen, tag, buff, false);
-		}
-	}
-	LogError("[MORE COLORS] Infinite loop broken.");
+	g_sOutputBuffer[outPos] = '\0';
+	strcopy(buffer, maxlen, g_sOutputBuffer);
 }
 
 /**
