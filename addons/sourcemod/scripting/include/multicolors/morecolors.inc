@@ -369,9 +369,10 @@ stock void CSubString(const char[] input, char[] output, int maxlen, int start, 
  * @param buffer		String to convert
  */
 stock void MC_StrToLower(char[] buffer) {
-	int len = strlen(buffer);
-	for (int i = 0; i < len; i++) {
-		buffer[i] = CharToLower(buffer[i]);
+	for (int i = 0; buffer[i]; i++) {
+		if (buffer[i] >= 'A' && buffer[i] <= 'Z') {
+			buffer[i] |= 0x20;
+		}
 	}
 }
 
