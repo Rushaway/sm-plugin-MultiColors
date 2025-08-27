@@ -47,6 +47,9 @@ stock void CSetPrefix(const char[] sPrefix, any ...) {
 
 	// Add ending space
 	Format(g_sCPrefix, sizeof(g_sCPrefix), "%s%s", g_sCPrefix, PREFIX_SEPARATOR);
+
+	// Set colors
+	CReplaceColorCodes(g_sCPrefix);
 }
 
 /**
