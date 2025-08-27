@@ -24,6 +24,13 @@
 
 bool MC_SkipList[MAXPLAYERS+1];
 int MC_TeamColors[][] = {{0xCCCCCC, 0x4D7942, 0xFF4040}}; // Multi-dimensional array for games that don't support SayText2. First index is the game index (as defined by the GAME_ defines), second index is team. 0 = spectator, 1 = team1, 2 = team2
+static char g_sColorKeys[COLOR_HASH_SIZE][32];
+static char g_sColorValues[COLOR_HASH_SIZE][16];
+static int g_iColorHash[COLOR_HASH_SIZE];
+static int g_iColorCount = 0;
+
+static char g_sOutputBuffer[MAX_BUFFER_LENGTH];
+static char g_sTempTag[32];
 
 static ConVar sm_show_activity;
 
@@ -242,7 +249,7 @@ stock void MC_SkipNextClient(int client) {
 stock void MC_ReplaceColorCodes(char[] buffer, int author = 0, bool removeTags = false, int maxlen = MAX_BUFFER_LENGTH) {
 	MC_InitFastColors();
 	if (!removeTags) {
-		FastReplaceString(buffer, maxlen, "{default}", "\x01");
+		MC_FastReplaceString(buffer, maxlen, "{default}", "\x01");
 
 		if (author != 0) {
 			if (author < 0 || author > MaxClients) {
@@ -253,12 +260,12 @@ stock void MC_ReplaceColorCodes(char[] buffer, int author = 0, bool removeTags =
 				ThrowError("Client %i is not in game", author);
 			}
 
-			FastReplaceString(buffer, maxlen, "{teamcolor}", "\x03");
+			MC_FastReplaceString(buffer, maxlen, "{teamcolor}", "\x03");
 		}
 	}
 	else {
-		FastReplaceString(buffer, maxlen, "{default}", "");
-		FastReplaceString(buffer, maxlen, "{teamcolor}", "");
+		MC_FastReplaceString(buffer, maxlen, "{default}", "");
+		MC_FastReplaceString(buffer, maxlen, "{teamcolor}", "");
 	}
 
 	int outPos = 0;
@@ -1001,4 +1008,104 @@ stock void MC_InitFastColors() {
 	MC_FastSetColor("whitesmoke", "0xF5F5F5");
 	MC_FastSetColor("yellow", "0xFFFF00");
 	MC_FastSetColor("yellowgreen", "0x9ACD32");
+}
+
+stock int MC_FastHash(const char[] str) {
+	int hash = 2166136261;
+	for (int i = 0; str[i]; i++) {
+		hash ^= str[i];
+		hash *= 16777619;
+	}
+	return hash & (COLOR_HASH_SIZE - 1);
+}
+
+stock void MC_FastSetColor(const char[] key, const char[] value) {
+	if (!key[0] || !value[0] || g_iColorCount >= COLOR_HASH_SIZE)
+		return;
+
+	int hash = MC_FastHash(key);
+
+	while (g_iColorHash[hash] > 0) {
+		int existingIndex = g_iColorHash[hash] - 1;
+		if (strcmp(g_sColorKeys[existingIndex], key, false) == 0) {
+			strcopy(g_sColorValues[existingIndex], 16, value);
+			return;
+		}
+		hash = (hash + 1) & (COLOR_HASH_SIZE - 1);
+	}
+
+	strcopy(g_sColorKeys[g_iColorCount], 32, key);
+	strcopy(g_sColorValues[g_iColorCount], 16, value);
+	g_iColorHash[hash] = g_iColorCount + 1;
+	g_iColorCount++;
+}
+
+stock bool MC_FastGetColor(const char[] key, char[] output, int maxlen) {
+	if (!key[0])
+		return false;
+
+	int hash = MC_FastHash(key);
+	int originalHash = hash;
+
+	do {
+		int index = g_iColorHash[hash];
+		if (index == 0)
+			return false;
+
+		index--;
+		if (strcmp(g_sColorKeys[index], key, false) == 0) {
+			strcopy(output, maxlen, g_sColorValues[index]);
+			return true;
+		}
+
+		hash = (hash + 1) & (COLOR_HASH_SIZE - 1);
+	} while (hash != originalHash);
+
+	return false;
+}
+
+// Ultra optimized string replacement
+stock void MC_FastReplaceString(char[] text, int maxlen, const char[] search, const char[] replace) {
+	if (!search[0] || !text[0])
+		return;
+
+	int searchLen = strlen(search);
+	if (searchLen == 0)
+		return;
+
+	int textLen = strlen(text);
+	if (textLen == 0)
+		return;
+
+	static char localBuffer[MAX_BUFFER_LENGTH];
+	int replaceLen = strlen(replace);
+	int tempPos = 0;
+	int i = 0;
+
+	while (i < textLen && tempPos < maxlen - 1) {
+		if (i <= textLen - searchLen) {
+			// Manual character comparison instead of strncmp
+			bool match = true;
+			for (int j = 0; j < searchLen; j++) {
+				if (text[i + j] != search[j]) {
+					match = false;
+					break;
+				}
+			}
+
+			if (match) {
+				// Found match, copy replacement
+				for (int k = 0; k < replaceLen && tempPos < maxlen - 1; k++) {
+					localBuffer[tempPos++] = replace[k];
+				}
+				i += searchLen;
+				continue;
+			}
+		}
+
+		localBuffer[tempPos++] = text[i++];
+	}
+
+	localBuffer[tempPos] = '\0';
+	strcopy(text, maxlen, localBuffer);
 }
