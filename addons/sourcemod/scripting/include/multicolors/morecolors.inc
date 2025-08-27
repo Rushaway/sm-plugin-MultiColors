@@ -793,9 +793,12 @@ stock int MC_ShowActivity2(int client, const char[] tag, const char[] format, an
  * @return				True if the color exists, false otherwise
  */
 stock bool CColorExists(const char[] color) {
-	MC_CheckTrie();
-	int temp;
-	return MC_Trie.GetValue(color, temp);
+	MC_InitFastColors();
+	char temp[16];
+	char colorName[64];
+	strcopy(colorName, sizeof(colorName), color);
+	MC_StrToLower(colorName);
+	return MC_FastGetColor(colorName, temp, sizeof(temp));
 }
 
 /**
