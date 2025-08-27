@@ -384,19 +384,20 @@ stock void MC_StrToLower(char[] buffer) {
  * @return				True if color was added successfully, false if a color already exists with that name
  */
 stock bool MC_AddColor(const char[] name, int color) {
-	MC_CheckTrie();
+	MC_InitFastColors();
 
-	int value;
+	char value[16];
+	char newName[64];
+	strcopy(newName, sizeof(newName), name);
+	MC_StrToLower(newName);
 
-	if (MC_Trie.GetValue(name, value)) {
+	if (FastGetColor(newName, value, sizeof(value))) {
 		return false;
 	}
 
-	char newName[64];
-	strcopy(newName, sizeof(newName), name);
-
-	MC_StrToLower(newName);
-	MC_Trie.SetValue(newName, color);
+	char colorValue[16];
+	Format(colorValue, sizeof(colorValue), "\x07%06X", color);
+	MC_FastSetColor(newName, colorValue);
 	return true;
 }
 
