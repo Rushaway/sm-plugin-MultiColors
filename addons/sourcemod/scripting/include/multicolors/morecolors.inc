@@ -306,7 +306,7 @@ stock void MC_ReplaceColorCodes(char[] buffer, int author = 0, bool removeTags =
 					}
 					found = true;
 				} else {
-					found = FastGetColor(g_sTempTag, value, sizeof(value));
+					found = MC_FastGetColor(g_sTempTag, value, sizeof(value));
 				}
 
 				if (found && !removeTags) {
@@ -381,7 +381,7 @@ stock bool MC_AddColor(const char[] name, int color) {
 	strcopy(newName, sizeof(newName), name);
 	MC_StrToLower(newName);
 
-	if (FastGetColor(newName, value, sizeof(value))) {
+	if (MC_FastGetColor(newName, value, sizeof(value))) {
 		return false;
 	}
 
