@@ -833,179 +833,179 @@ stock void MC_InitFastColors() {
 	if (g_iColorCount > 0)
 		return;
 
-	MC_FastSetColor("aliceblue", "0xF0F8FF");
-	MC_FastSetColor("allies", "0x4D7942"); // same as Allies team in DoD:S
-	MC_FastSetColor("ancient", "0xEB4B4B"); // same as Ancient item rarity in Dota 2
-	MC_FastSetColor("antiquewhite", "0xFAEBD7");
-	MC_FastSetColor("aqua", "0x00FFFF");
-	MC_FastSetColor("aquamarine", "0x7FFFD4");
-	MC_FastSetColor("arcana", "0xADE55C"); // same as Arcana item rarity in Dota 2
-	MC_FastSetColor("axis", "0xFF4040"); // same as Axis team in DoD:S
-	MC_FastSetColor("azure", "0x007FFF");
-	MC_FastSetColor("beige", "0xF5F5DC");
-	MC_FastSetColor("bisque", "0xFFE4C4");
-	MC_FastSetColor("black", "0x000000");
-	MC_FastSetColor("blanchedalmond", "0xFFEBCD");
-	MC_FastSetColor("blue", "0x99CCFF"); // same as BLU/Counter-Terrorist team color
-	MC_FastSetColor("blueviolet", "0x8A2BE2");
-	MC_FastSetColor("brown", "0xA52A2A");
-	MC_FastSetColor("burlywood", "0xDEB887");
-	MC_FastSetColor("cadetblue", "0x5F9EA0");
-	MC_FastSetColor("chartreuse", "0x7FFF00");
-	MC_FastSetColor("chocolate", "0xD2691E");
-	MC_FastSetColor("collectors", "0xAA0000"); // same as Collector's item quality in TF2
-	MC_FastSetColor("common", "0xB0C3D9"); // same as Common item rarity in Dota 2
-	MC_FastSetColor("community", "0x70B04A"); // same as Community item quality in TF2
-	MC_FastSetColor("coral", "0xFF7F50");
-	MC_FastSetColor("cornflowerblue", "0x6495ED");
-	MC_FastSetColor("cornsilk", "0xFFF8DC");
-	MC_FastSetColor("corrupted", "0xA32C2E"); // same as Corrupted item quality in Dota 2
-	MC_FastSetColor("crimson", "0xDC143C");
-	MC_FastSetColor("cyan", "0x00FFFF");
-	MC_FastSetColor("darkblue", "0x00008B");
-	MC_FastSetColor("darkcyan", "0x008B8B");
-	MC_FastSetColor("darkgoldenrod", "0xB8860B");
-	MC_FastSetColor("darkgray", "0xA9A9A9");
-	MC_FastSetColor("darkgrey", "0xA9A9A9");
-	MC_FastSetColor("darkgreen", "0x006400");
-	MC_FastSetColor("darkkhaki", "0xBDB76B");
-	MC_FastSetColor("darkmagenta", "0x8B008B");
-	MC_FastSetColor("darkolivegreen", "0x556B2F");
-	MC_FastSetColor("darkorange", "0xFF8C00");
-	MC_FastSetColor("darkorchid", "0x9932CC");
-	MC_FastSetColor("darkred", "0x8B0000");
-	MC_FastSetColor("darksalmon", "0xE9967A");
-	MC_FastSetColor("darkseagreen", "0x8FBC8F");
-	MC_FastSetColor("darkslateblue", "0x483D8B");
-	MC_FastSetColor("darkslategray", "0x2F4F4F");
-	MC_FastSetColor("darkslategrey", "0x2F4F4F");
-	MC_FastSetColor("darkturquoise", "0x00CED1");
-	MC_FastSetColor("darkviolet", "0x9400D3");
-	MC_FastSetColor("deeppink", "0xFF1493");
-	MC_FastSetColor("deepskyblue", "0x00BFFF");
-	MC_FastSetColor("dimgray", "0x696969");
-	MC_FastSetColor("dimgrey", "0x696969");
-	MC_FastSetColor("dodgerblue", "0x1E90FF");
-	MC_FastSetColor("exalted", "0xCCCCCD"); // same as Exalted item quality in Dota 2
-	MC_FastSetColor("firebrick", "0xB22222");
-	MC_FastSetColor("floralwhite", "0xFFFAF0");
-	MC_FastSetColor("forestgreen", "0x228B22");
-	MC_FastSetColor("frozen", "0x4983B3"); // same as Frozen item quality in Dota 2
-	MC_FastSetColor("fuchsia", "0xFF00FF");
-	MC_FastSetColor("fullblue", "0x0000FF");
-	MC_FastSetColor("fullred", "0xFF0000");
-	MC_FastSetColor("gainsboro", "0xDCDCDC");
-	MC_FastSetColor("genuine", "0x4D7455"); // same as Genuine item quality in TF2
-	MC_FastSetColor("ghostwhite", "0xF8F8FF");
-	MC_FastSetColor("gold", "0xFFD700");
-	MC_FastSetColor("goldenrod", "0xDAA520");
-	MC_FastSetColor("gray", "0xCCCCCC"); // same as spectator team color
-	MC_FastSetColor("grey", "0xCCCCCC");
-	MC_FastSetColor("green", "0x3EFF3E");
-	MC_FastSetColor("greenyellow", "0xADFF2F");
-	MC_FastSetColor("haunted", "0x38F3AB"); // same as Haunted item quality in TF2
-	MC_FastSetColor("honeydew", "0xF0FFF0");
-	MC_FastSetColor("hotpink", "0xFF69B4");
-	MC_FastSetColor("immortal", "0xE4AE33"); // same as Immortal item rarity in Dota 2
-	MC_FastSetColor("indianred", "0xCD5C5C");
-	MC_FastSetColor("indigo", "0x4B0082");
-	MC_FastSetColor("ivory", "0xFFFFF0");
-	MC_FastSetColor("khaki", "0xF0E68C");
-	MC_FastSetColor("lavender", "0xE6E6FA");
-	MC_FastSetColor("lavenderblush", "0xFFF0F5");
-	MC_FastSetColor("lawngreen", "0x7CFC00");
-	MC_FastSetColor("legendary", "0xD32CE6"); // same as Legendary item rarity in Dota 2
-	MC_FastSetColor("lemonchiffon", "0xFFFACD");
-	MC_FastSetColor("lightblue", "0xADD8E6");
-	MC_FastSetColor("lightcoral", "0xF08080");
-	MC_FastSetColor("lightcyan", "0xE0FFFF");
-	MC_FastSetColor("lightgoldenrodyellow", "0xFAFAD2");
-	MC_FastSetColor("lightgray", "0xD3D3D3");
-	MC_FastSetColor("lightgrey", "0xD3D3D3");
-	MC_FastSetColor("lightgreen", "0x99FF99");
-	MC_FastSetColor("lightpink", "0xFFB6C1");
-	MC_FastSetColor("lightsalmon", "0xFFA07A");
-	MC_FastSetColor("lightseagreen", "0x20B2AA");
-	MC_FastSetColor("lightskyblue", "0x87CEFA");
-	MC_FastSetColor("lightslategray", "0x778899");
-	MC_FastSetColor("lightslategrey", "0x778899");
-	MC_FastSetColor("lightsteelblue", "0xB0C4DE");
-	MC_FastSetColor("lightyellow", "0xFFFFE0");
-	MC_FastSetColor("lime", "0x00FF00");
-	MC_FastSetColor("limegreen", "0x32CD32");
-	MC_FastSetColor("linen", "0xFAF0E6");
-	MC_FastSetColor("magenta", "0xFF00FF");
-	MC_FastSetColor("maroon", "0x800000");
-	MC_FastSetColor("mediumaquamarine", "0x66CDAA");
-	MC_FastSetColor("mediumblue", "0x0000CD");
-	MC_FastSetColor("mediumorchid", "0xBA55D3");
-	MC_FastSetColor("mediumpurple", "0x9370D8");
-	MC_FastSetColor("mediumseagreen", "0x3CB371");
-	MC_FastSetColor("mediumslateblue", "0x7B68EE");
-	MC_FastSetColor("mediumspringgreen", "0x00FA9A");
-	MC_FastSetColor("mediumturquoise", "0x48D1CC");
-	MC_FastSetColor("mediumvioletred", "0xC71585");
-	MC_FastSetColor("midnightblue", "0x191970");
-	MC_FastSetColor("mintcream", "0xF5FFFA");
-	MC_FastSetColor("mistyrose", "0xFFE4E1");
-	MC_FastSetColor("moccasin", "0xFFE4B5");
-	MC_FastSetColor("mythical", "0x8847FF"); // same as Mythical item rarity in Dota 2
-	MC_FastSetColor("navajowhite", "0xFFDEAD");
-	MC_FastSetColor("navy", "0x000080");
-	MC_FastSetColor("normal", "0xB2B2B2"); // same as Normal item quality in TF2
-	MC_FastSetColor("oldlace", "0xFDF5E6");
-	MC_FastSetColor("olive", "0x9EC34F");
-	MC_FastSetColor("olivedrab", "0x6B8E23");
-	MC_FastSetColor("orange", "0xFFA500");
-	MC_FastSetColor("orangered", "0xFF4500");
-	MC_FastSetColor("orchid", "0xDA70D6");
-	MC_FastSetColor("palegoldenrod", "0xEEE8AA");
-	MC_FastSetColor("palegreen", "0x98FB98");
-	MC_FastSetColor("paleturquoise", "0xAFEEEE");
-	MC_FastSetColor("palevioletred", "0xD87093");
-	MC_FastSetColor("papayawhip", "0xFFEFD5");
-	MC_FastSetColor("peachpuff", "0xFFDAB9");
-	MC_FastSetColor("peru", "0xCD853F");
-	MC_FastSetColor("pink", "0xFFC0CB");
-	MC_FastSetColor("plum", "0xDDA0DD");
-	MC_FastSetColor("powderblue", "0xB0E0E6");
-	MC_FastSetColor("purple", "0x800080");
-	MC_FastSetColor("rare", "0x4B69FF"); // same as Rare item rarity in Dota 2
-	MC_FastSetColor("red", "0xFF4040"); // same as RED/Terrorist team color
-	MC_FastSetColor("rosybrown", "0xBC8F8F");
-	MC_FastSetColor("royalblue", "0x4169E1");
-	MC_FastSetColor("saddlebrown", "0x8B4513");
-	MC_FastSetColor("salmon", "0xFA8072");
-	MC_FastSetColor("sandybrown", "0xF4A460");
-	MC_FastSetColor("seagreen", "0x2E8B57");
-	MC_FastSetColor("seashell", "0xFFF5EE");
-	MC_FastSetColor("selfmade", "0x70B04A"); // same as Self-Made item quality in TF2
-	MC_FastSetColor("sienna", "0xA0522D");
-	MC_FastSetColor("silver", "0xC0C0C0");
-	MC_FastSetColor("skyblue", "0x87CEEB");
-	MC_FastSetColor("slateblue", "0x6A5ACD");
-	MC_FastSetColor("slategray", "0x708090");
-	MC_FastSetColor("slategrey", "0x708090");
-	MC_FastSetColor("snow", "0xFFFAFA");
-	MC_FastSetColor("springgreen", "0x00FF7F");
-	MC_FastSetColor("steelblue", "0x4682B4");
-	MC_FastSetColor("strange", "0xCF6A32"); // same as Strange item quality in TF2
-	MC_FastSetColor("tan", "0xD2B48C");
-	MC_FastSetColor("teal", "0x008080");
-	MC_FastSetColor("thistle", "0xD8BFD8");
-	MC_FastSetColor("tomato", "0xFF6347");
-	MC_FastSetColor("turquoise", "0x40E0D0");
-	MC_FastSetColor("uncommon", "0xB0C3D9"); // same as Uncommon item rarity in Dota 2
-	MC_FastSetColor("unique", "0xFFD700"); // same as Unique item quality in TF2
-	MC_FastSetColor("unusual", "0x8650AC"); // same as Unusual item quality in TF2
-	MC_FastSetColor("valve", "0xA50F79"); // same as Valve item quality in TF2
-	MC_FastSetColor("vintage", "0x476291"); // same as Vintage item quality in TF2
-	MC_FastSetColor("violet", "0xEE82EE");
-	MC_FastSetColor("wheat", "0xF5DEB3");
-	MC_FastSetColor("white", "0xFFFFFF");
-	MC_FastSetColor("whitesmoke", "0xF5F5F5");
-	MC_FastSetColor("yellow", "0xFFFF00");
-	MC_FastSetColor("yellowgreen", "0x9ACD32");
+	MC_FastSetColor("aliceblue", "\x07F0F8FF");
+	MC_FastSetColor("allies", "\x074D7942"); // same as Allies team in DoD:S
+	MC_FastSetColor("ancient", "\x07EB4B4B"); // same as Ancient item rarity in Dota 2
+	MC_FastSetColor("antiquewhite", "\x07FAEBD7");
+	MC_FastSetColor("aqua", "\x0700FFFF");
+	MC_FastSetColor("aquamarine", "\x077FFFD4");
+	MC_FastSetColor("arcana", "\x07ADE55C"); // same as Arcana item rarity in Dota 2
+	MC_FastSetColor("axis", "\x07FF4040"); // same as Axis team in DoD:S
+	MC_FastSetColor("azure", "\x07007FFF");
+	MC_FastSetColor("beige", "\x07F5F5DC");
+	MC_FastSetColor("bisque", "\x07FFE4C4");
+	MC_FastSetColor("black", "\x07000000");
+	MC_FastSetColor("blanchedalmond", "\x07FFEBCD");
+	MC_FastSetColor("blue", "\x0799CCFF"); // same as BLU/Counter-Terrorist team color
+	MC_FastSetColor("blueviolet", "\x078A2BE2");
+	MC_FastSetColor("brown", "\x07A52A2A");
+	MC_FastSetColor("burlywood", "\x07DEB887");
+	MC_FastSetColor("cadetblue", "\x075F9EA0");
+	MC_FastSetColor("chartreuse", "\x077FFF00");
+	MC_FastSetColor("chocolate", "\x07D2691E");
+	MC_FastSetColor("collectors", "\x07AA0000"); // same as Collector's item quality in TF2
+	MC_FastSetColor("common", "\x07B0C3D9"); // same as Common item rarity in Dota 2
+	MC_FastSetColor("community", "\x0770B04A"); // same as Community item quality in TF2
+	MC_FastSetColor("coral", "\x07FF7F50");
+	MC_FastSetColor("cornflowerblue", "\x076495ED");
+	MC_FastSetColor("cornsilk", "\x07FFF8DC");
+	MC_FastSetColor("corrupted", "\x07A32C2E"); // same as Corrupted item quality in Dota 2
+	MC_FastSetColor("crimson", "\x07DC143C");
+	MC_FastSetColor("cyan", "\x0700FFFF");
+	MC_FastSetColor("darkblue", "\x0700008B");
+	MC_FastSetColor("darkcyan", "\x07008B8B");
+	MC_FastSetColor("darkgoldenrod", "\x07B8860B");
+	MC_FastSetColor("darkgray", "\x07A9A9A9");
+	MC_FastSetColor("darkgrey", "\x07A9A9A9");
+	MC_FastSetColor("darkgreen", "\x07006400");
+	MC_FastSetColor("darkkhaki", "\x07BDB76B");
+	MC_FastSetColor("darkmagenta", "\x078B008B");
+	MC_FastSetColor("darkolivegreen", "\x07556B2F");
+	MC_FastSetColor("darkorange", "\x07FF8C00");
+	MC_FastSetColor("darkorchid", "\x079932CC");
+	MC_FastSetColor("darkred", "\x078B0000");
+	MC_FastSetColor("darksalmon", "\x07E9967A");
+	MC_FastSetColor("darkseagreen", "\x078FBC8F");
+	MC_FastSetColor("darkslateblue", "\x07483D8B");
+	MC_FastSetColor("darkslategray", "\x072F4F4F");
+	MC_FastSetColor("darkslategrey", "\x072F4F4F");
+	MC_FastSetColor("darkturquoise", "\x0700CED1");
+	MC_FastSetColor("darkviolet", "\x079400D3");
+	MC_FastSetColor("deeppink", "\x07FF1493");
+	MC_FastSetColor("deepskyblue", "\x0700BFFF");
+	MC_FastSetColor("dimgray", "\x07696969");
+	MC_FastSetColor("dimgrey", "\x07696969");
+	MC_FastSetColor("dodgerblue", "\x071E90FF");
+	MC_FastSetColor("exalted", "\x07CCCCCD"); // same as Exalted item quality in Dota 2
+	MC_FastSetColor("firebrick", "\x07B22222");
+	MC_FastSetColor("floralwhite", "\x07FFFAF0");
+	MC_FastSetColor("forestgreen", "\x07228B22");
+	MC_FastSetColor("frozen", "\x074983B3"); // same as Frozen item quality in Dota 2
+	MC_FastSetColor("fuchsia", "\x07FF00FF");
+	MC_FastSetColor("fullblue", "\x070000FF");
+	MC_FastSetColor("fullred", "\x07FF0000");
+	MC_FastSetColor("gainsboro", "\x07DCDCDC");
+	MC_FastSetColor("genuine", "\x074D7455"); // same as Genuine item quality in TF2
+	MC_FastSetColor("ghostwhite", "\x07F8F8FF");
+	MC_FastSetColor("gold", "\x07FFD700");
+	MC_FastSetColor("goldenrod", "\x07DAA520");
+	MC_FastSetColor("gray", "\x07CCCCCC"); // same as spectator team color
+	MC_FastSetColor("grey", "\x07CCCCCC");
+	MC_FastSetColor("green", "\x073EFF3E");
+	MC_FastSetColor("greenyellow", "\x07ADFF2F");
+	MC_FastSetColor("haunted", "\x0738F3AB"); // same as Haunted item quality in TF2
+	MC_FastSetColor("honeydew", "\x07F0FFF0");
+	MC_FastSetColor("hotpink", "\x07FF69B4");
+	MC_FastSetColor("immortal", "\x07E4AE33"); // same as Immortal item rarity in Dota 2
+	MC_FastSetColor("indianred", "\x07CD5C5C");
+	MC_FastSetColor("indigo", "\x074B0082");
+	MC_FastSetColor("ivory", "\x07FFFFF0");
+	MC_FastSetColor("khaki", "\x07F0E68C");
+	MC_FastSetColor("lavender", "\x07E6E6FA");
+	MC_FastSetColor("lavenderblush", "\x07FFF0F5");
+	MC_FastSetColor("lawngreen", "\x077CFC00");
+	MC_FastSetColor("legendary", "\x07D32CE6"); // same as Legendary item rarity in Dota 2
+	MC_FastSetColor("lemonchiffon", "\x07FFFACD");
+	MC_FastSetColor("lightblue", "\x07ADD8E6");
+	MC_FastSetColor("lightcoral", "\x07F08080");
+	MC_FastSetColor("lightcyan", "\x07E0FFFF");
+	MC_FastSetColor("lightgoldenrodyellow", "\x07FAFAD2");
+	MC_FastSetColor("lightgray", "\x07D3D3D3");
+	MC_FastSetColor("lightgrey", "\x07D3D3D3");
+	MC_FastSetColor("lightgreen", "\x0799FF99");
+	MC_FastSetColor("lightpink", "\x07FFB6C1");
+	MC_FastSetColor("lightsalmon", "\x07FFA07A");
+	MC_FastSetColor("lightseagreen", "\x0720B2AA");
+	MC_FastSetColor("lightskyblue", "\x0787CEFA");
+	MC_FastSetColor("lightslategray", "\x07778899");
+	MC_FastSetColor("lightslategrey", "\x07778899");
+	MC_FastSetColor("lightsteelblue", "\x07B0C4DE");
+	MC_FastSetColor("lightyellow", "\x07FFFFE0");
+	MC_FastSetColor("lime", "\x0700FF00");
+	MC_FastSetColor("limegreen", "\x0732CD32");
+	MC_FastSetColor("linen", "\x07FAF0E6");
+	MC_FastSetColor("magenta", "\x07FF00FF");
+	MC_FastSetColor("maroon", "\x07800000");
+	MC_FastSetColor("mediumaquamarine", "\x0766CDAA");
+	MC_FastSetColor("mediumblue", "\x070000CD");
+	MC_FastSetColor("mediumorchid", "\x07BA55D3");
+	MC_FastSetColor("mediumpurple", "\x079370D8");
+	MC_FastSetColor("mediumseagreen", "\x073CB371");
+	MC_FastSetColor("mediumslateblue", "\x077B68EE");
+	MC_FastSetColor("mediumspringgreen", "\x0700FA9A");
+	MC_FastSetColor("mediumturquoise", "\x0748D1CC");
+	MC_FastSetColor("mediumvioletred", "\x07C71585");
+	MC_FastSetColor("midnightblue", "\x07191970");
+	MC_FastSetColor("mintcream", "\x07F5FFFA");
+	MC_FastSetColor("mistyrose", "\x07FFE4E1");
+	MC_FastSetColor("moccasin", "\x07FFE4B5");
+	MC_FastSetColor("mythical", "\x078847FF"); // same as Mythical item rarity in Dota 2
+	MC_FastSetColor("navajowhite", "\x07FFDEAD");
+	MC_FastSetColor("navy", "\x07000080");
+	MC_FastSetColor("normal", "\x07B2B2B2"); // same as Normal item quality in TF2
+	MC_FastSetColor("oldlace", "\x07FDF5E6");
+	MC_FastSetColor("olive", "\x079EC34F");
+	MC_FastSetColor("olivedrab", "\x076B8E23");
+	MC_FastSetColor("orange", "\x07FFA500");
+	MC_FastSetColor("orangered", "\x07FF4500");
+	MC_FastSetColor("orchid", "\x07DA70D6");
+	MC_FastSetColor("palegoldenrod", "\x07EEE8AA");
+	MC_FastSetColor("palegreen", "\x0798FB98");
+	MC_FastSetColor("paleturquoise", "\x07AFEEEE");
+	MC_FastSetColor("palevioletred", "\x07D87093");
+	MC_FastSetColor("papayawhip", "\x07FFEFD5");
+	MC_FastSetColor("peachpuff", "\x07FFDAB9");
+	MC_FastSetColor("peru", "\x07CD853F");
+	MC_FastSetColor("pink", "\x07FFC0CB");
+	MC_FastSetColor("plum", "\x07DDA0DD");
+	MC_FastSetColor("powderblue", "\x07B0E0E6");
+	MC_FastSetColor("purple", "\x07800080");
+	MC_FastSetColor("rare", "\x074B69FF"); // same as Rare item rarity in Dota 2
+	MC_FastSetColor("red", "\x07FF4040"); // same as RED/Terrorist team color
+	MC_FastSetColor("rosybrown", "\x07BC8F8F");
+	MC_FastSetColor("royalblue", "\x074169E1");
+	MC_FastSetColor("saddlebrown", "\x078B4513");
+	MC_FastSetColor("salmon", "\x07FA8072");
+	MC_FastSetColor("sandybrown", "\x07F4A460");
+	MC_FastSetColor("seagreen", "\x072E8B57");
+	MC_FastSetColor("seashell", "\x07FFF5EE");
+	MC_FastSetColor("selfmade", "\x0770B04A"); // same as Self-Made item quality in TF2
+	MC_FastSetColor("sienna", "\x07A0522D");
+	MC_FastSetColor("silver", "\x07C0C0C0");
+	MC_FastSetColor("skyblue", "\x0787CEEB");
+	MC_FastSetColor("slateblue", "\x076A5ACD");
+	MC_FastSetColor("slategray", "\x07708090");
+	MC_FastSetColor("slategrey", "\x07708090");
+	MC_FastSetColor("snow", "\x07FFFAFA");
+	MC_FastSetColor("springgreen", "\x0700FF7F");
+	MC_FastSetColor("steelblue", "\x074682B4");
+	MC_FastSetColor("strange", "\x07CF6A32"); // same as Strange item quality in TF2
+	MC_FastSetColor("tan", "\x07D2B48C");
+	MC_FastSetColor("teal", "\x07008080");
+	MC_FastSetColor("thistle", "\x07D8BFD8");
+	MC_FastSetColor("tomato", "\x07FF6347");
+	MC_FastSetColor("turquoise", "\x0740E0D0");
+	MC_FastSetColor("uncommon", "\x07B0C3D9"); // same as Uncommon item rarity in Dota 2
+	MC_FastSetColor("unique", "\x07FFD700"); // same as Unique item quality in TF2
+	MC_FastSetColor("unusual", "\x078650AC"); // same as Unusual item quality in TF2
+	MC_FastSetColor("valve", "\x07A50F79"); // same as Valve item quality in TF2
+	MC_FastSetColor("vintage", "\x07476291"); // same as Vintage item quality in TF2
+	MC_FastSetColor("violet", "\x07EE82EE");
+	MC_FastSetColor("wheat", "\x07F5DEB3");
+	MC_FastSetColor("white", "\x07FFFFFF");
+	MC_FastSetColor("whitesmoke", "\x07F5F5F5");
+	MC_FastSetColor("yellow", "\x07FFFF00");
+	MC_FastSetColor("yellowgreen", "\x079ACD32");
 }
 
 stock int MC_FastHash(const char[] str) {
