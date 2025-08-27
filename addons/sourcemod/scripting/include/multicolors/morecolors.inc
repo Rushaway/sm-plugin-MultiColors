@@ -365,7 +365,7 @@ stock void MC_StrToLower(char[] buffer) {
 }
 
 /**
- * Adds a color to the colors trie
+ * Adds a color to the colors hash table
  *
  * @param name			Color name, without braces
  * @param color			Hexadecimal representation of the color (0xRRGGBB)
@@ -790,7 +790,7 @@ stock bool CColorExists(const char[] color) {
 }
 
 /**
- * Returns the hexadecimal representation of a client's team color (will NOT initialize the trie)
+ * Returns the hexadecimal representation of a client's team color (will initialize the hash table if needed)
  *
  * @param client		Client to get the team color for
  * @return				Client's team color in hexadecimal, or green if unknown
