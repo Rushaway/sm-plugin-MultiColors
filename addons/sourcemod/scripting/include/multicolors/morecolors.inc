@@ -37,7 +37,7 @@ static ConVar sm_show_activity;
  * On error/Errors:		If the client is not connected an error will be thrown.
  */
 stock void MC_PrintToChat(int client, const char[] message, any ...) {
-	MC_CheckTrie();
+	MC_InitFastColors();
 
 	if (client <= 0 || client > MaxClients) {
 		ThrowError("Invalid client index %i", client);
@@ -66,7 +66,7 @@ stock void MC_PrintToChat(int client, const char[] message, any ...) {
  * @param message		Message (formatting rules).
  */
 stock void MC_PrintToChatAll(const char[] message, any ...) {
-	MC_CheckTrie();
+	MC_InitFastColors();
 
 	char buffer[MAX_BUFFER_LENGTH], buffer2[MAX_BUFFER_LENGTH];
 
@@ -96,7 +96,7 @@ stock void MC_PrintToChatAll(const char[] message, any ...) {
  * On error/Errors:		If the client or author are not connected an error will be thrown
  */
 stock void MC_PrintToChatEx(int client, int author, const char[] message, any ...) {
-	MC_CheckTrie();
+	MC_InitFastColors();
 
 	if (client <= 0 || client > MaxClients) {
 		ThrowError("Invalid client index %i", client);
@@ -132,7 +132,7 @@ stock void MC_PrintToChatEx(int client, int author, const char[] message, any ..
  * On error/Errors:   If the author is not connected an error will be thrown.
  */
 stock void MC_PrintToChatAllEx(int author, const char[] message, any ...) {
-	MC_CheckTrie();
+	MC_InitFastColors();
 
 	if (author < 0 || author > MaxClients) {
 		ThrowError("Invalid client index %i", author);
